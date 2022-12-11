@@ -1,36 +1,15 @@
 import "./App.css";
 import React from "react";
-import { textFields } from "./utils";
+import { Exhibit } from "./components/Exhibit/Exhibit.component";
+import { Banner } from "./components/Banner/Banner";
 
-function App() {
+export const App = () => {
   const REACT_APP_DOCUMENT_TITLE = "Sextant";
-
-  React.useEffect(() => {
-    document.title = REACT_APP_DOCUMENT_TITLE;
-  }, []);
 
   return (
     <div className="App">
-      <header className="App-header">{REACT_APP_DOCUMENT_TITLE}</header>
-      <body>
-        <div>
-          <h1>Cisco Intro to Software Engineering</h1>
-        </div>
-        <div>
-          {textFields.map((element) => {
-            return (
-              <div className="block">
-                <h4>{element.title}</h4>
-                <div>
-                  <span>{element.content}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </body>
+      <Banner bannerText={REACT_APP_DOCUMENT_TITLE} />
+      <Exhibit name={`Showing customer IP`} />
     </div>
   );
-}
-
-export default App;
+};
